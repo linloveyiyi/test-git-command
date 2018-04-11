@@ -1,78 +1,79 @@
-������(bash)��ͼ�ν���(GUI)�ֱ�չʾ
+命令行(bash)和图形界面(GUI)分别展示
 
 
-GUI��
-���ص���Ŀ�ϴ���Github
+GUI：
+本地的项目上传至Github
 
-Step1. �ڱ�����һ���ļ��У��Ҽ�git gui here
+Step1. 在本机找一个文件夹，右键git gui here
 
-Step2. create new repository������һ���ļ������ƣ�demo��������Ǳ��ص���Ŀ�ֿ�
+Step2. create new repository，输入一个文件夹名称：demo，这个就是本地的项目仓库
 
-step3. ��Ҫ�ϴ�ʲô�ļ����ŵ�����ļ����¼���
+step3. 想要上传什么文件，放到这个文件夹下即可
 
-step4. ���زֿ������Զ�̿⣺
-1. ǰ�᣺�Ѿ�ע����github���˻����Լ�Զ�̿���Ҫ���ļ��ĵ�ַ
-2. ����ǰ������git gui������ѡ�� remote ->add
-3. ����Զ�̿���˻��͵�ַ��ȷ��---��ʾ�����ɹ�
-4. �ڱ��زֿ����һ��ʾ���ļ�������ͼ�ν�������ˢ�¡��ݴ��ļ������ݴ棬��ǡ��ύ���ϴ������״��ϴ���Ҫ����github�û��������룩
-5. ���push�󣬻���һ�������������и��ط�����ѡ��һ������ύ�ɹ�
-6.��¼��github���Կ�����Ӧ�ı��
-
-
-��¡
-������Զ�̿����Ŀdown������---�ļ����Ҽ�git gui��ѡ��clone existing repository
-
-������һ����fetch�����𣺿�¡�Ǳ���û�п⣬ֱ��downԶ�̵ģ�������־��Ϣ����֧�ȣ�fetch�Ǳ����п⣬��Զ�̵����������������������뱾�صĽ��кϲ�
-
-���£��ϴ������--һ���ǿ�¡����������ݣ��ٻش���Զ��
-
-����ˢ��-�ݴ�-���-�ύ��push
-
-������������ļ�������Ҫ����ɨ�裻���ֻ���޸����л�ɾ����ֱ��stage changes
-
-pull��ȡ ---fetch �� merge ��ͳ��
+step4. 本地仓库关联到远程库：
+1. 前提：已经注册了github的账户，以及远程库上要放文件的地址
+2. 在先前弹出的git gui窗口中选择 remote ->add
+3. 输入远程库的账户和地址，确定---提示关联成功
+4. 在本地仓库放入一个示例文件，进入图形界面依次刷新、暂存文件进入暂存，标记、提交和上传。（首次上传需要输入github用户名和密码）
+5. 点击push后，会有一个弹出框，其中有个地方必须选择一项才能提交成功
+6.登录到github可以看到相应的变更
 
 
+克隆
+就是在远程库把项目down到本地---文件夹右键git gui，选择clone existing repository
 
-�����У�
+这里有一个与fetch的区别：克隆是本地没有库，直接down远程的，包括日志信息，分支等；fetch是本地有库，把远程的内容下载下来，还可以与本地的进行合并
 
-��gui��ͬ���ǣ�����������Ҫͨ�������һ���ļ��в������ʼ��Ϊgit�ɹ����Ĳֿ�
-mkdir and cddir  pwd�鿴һ��
-1. ���ص�һЩ����
-git init һ��
+更新（上传变更）--一般是克隆后更新了内容，再回传到远端
 
-touch ����һ���ļ�
+重新刷新-暂存-标记-提交和push
 
-git add ���ļ����ӵ��ݴ���
+如果是新增了文件，则需要重新扫描；如果只是修改现有或删除，直接stage changes
 
-git commit -m �ύ�����ؿ�
+pull拉取 ---fetch 和 merge 的统称
 
-git status �� git diff �����˽��ļ�״̬�ͱ�����
 
-git log  �˽������ύ��־�������ύid��author��
 
-git reset ����id������ѡ����˵��ĸ��汾
+命令行：
 
-2. ����Զ�̿�
+与gui不同的是，命令行首先要通过命令创建一个文件夹并将其初始化为git可管理的仓库
+mkdir and cddir  pwd查看一下
+1. 本地的一些操作
+git init 一下
 
-Ҳ��Ҫ����һ��Զ�̿�ĵ�ַ
+touch 添加一个文件
+
+git add 把文件添加到暂存区
+
+git commit -m 提交到本地库
+
+git status 和 git diff 可以了解文件状态和变更情况
+
+git log  了解所有提交日志，包括提交id，author等
+
+git reset 有了id，可以选择回退到哪个版本
+
+2. 关联远程库
+
+也是要先有一个远程库的地址
 git remote add origin
 git push -u origin master
 
-3.������Ŀ���¼����ļ�����
+3.更新项目（新加了文件）：
 $cd ~/hello-world
-$git add .                  //���������Զ��ж��¼�����Щ�ļ��������ֶ������ļ�����
-$git commit              //�ύ�����زֿ⣬���Ӳ�������ʾ��ע��:^=Ctrl��������ʾ���ͺ���
-$git push origin master    //�����´����ģ�������add ��remote����
-3.������Ŀ��û�¼��ļ���ֻ��ɾ�������޸��ļ�����
+$git add .                  //这样可以自动判断新加了哪些文件，或者手动加入文件名字
+$git commit              //提交到本地仓库，不加参数会提示，注意:^=Ctrl，按照提示来就好了
+$git push origin master    //不是新创建的，不用再add 到remote上了
+3.更新项目（没新加文件，只有删除或者修改文件）：
 $cd ~/hello-world
-$git commit -a          //��¼ɾ�����޸�����Щ�ļ�
-$git push origin master  //�ύ��github
+$git commit -a          //记录删除或修改了哪些文件
+$git push origin master  //提交到github
 
-��ͬ�˺��л�--git config �����ʾ��ͬ��author
+不同账号切换--git config 命令，显示不同的author
 
-��ͬ��֧����ͬʱ�޸�ͬһ���ļ���������ܳ��ֺϲ���ͻ
+不同分支不能同时修改同一个文件，否则可能出现合并冲突
 
+12121
 
 
 
